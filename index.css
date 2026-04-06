@@ -1,8 +1,8 @@
 
 /* ── CSS Variables ───────────────────────────────────────────── */
 :root {
-    --dark:       #99b391;
-    --dark-2:     #8a9f83;
+    --dark:       #869b80;
+    --dark-2:     #7b8f75;
     --dark-3:     #75916c;
     --gold:       #313d31;
     --gold-light: #8caa8a;
@@ -71,6 +71,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 .navbar-luxe {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     padding: 1.1rem 2rem;
@@ -78,13 +79,18 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     align-items: center;
     justify-content: space-between;
     background: transparent;
-    transition: background var(--transition), backdrop-filter var(--transition);
+    transform: translateY(0);
+    transition: transform var(--transition), background var(--transition), backdrop-filter var(--transition);
 }
 
 .navbar-luxe.scrolled {
     background: rgba(190, 220, 190, 0.92);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(124, 196, 138, 0.3);
+}
+
+.navbar-luxe.hidden {
+    transform: translateY(-120%);
 }
 
 .nav-brand {
@@ -860,15 +866,17 @@ footer {
 
 .lightbox-close {
     position: absolute;
-    top: -14px;
+    top: -20px;
     right: -14px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background: rgba(201, 169, 110, 0.15);
     border: 1px solid rgba(201, 169, 110, 0.3);
-    color: var(--gold);
-    font-size: 1rem;
+    color: var(--cream);
+    font-size: 1rem;    
+    line-height: 1;
+    padding: 0;    
     display: flex;
     align-items: center;
     justify-content: center;

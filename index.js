@@ -60,9 +60,9 @@ function openLightbox(id) {
         <img src="${d.image}" alt="${d.name}" style="width:100%;height:100%;object-fit:contain;border-radius:16px;" />
     `;
     info.innerHTML = `
-        <span class="label-small d-block mb-1">${d.category}</span>
+        <span class="label-small d-block mb-1" style="color: var(--cream);">${d.category}</span>
         <h3 style="font-family:'Playfair Display',serif;color:var(--cream);font-size:1.8rem;">${d.name}</h3>
-        <p style="color:var(--muted);font-size:0.95rem;margin-top:0.5rem;">Diseño hecho a mano — set disponible bajo pedido.</p>
+        <p style="color:var(--cream);font-size:0.95rem;margin-top:0.5rem;">Diseño hecho a mano — set disponible bajo pedido.</p>
     `;
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -81,27 +81,6 @@ window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
     document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
 });
-
-/* ── Count-up animation ─────────────────────────────────────────── */
-const counters = document.querySelectorAll('[data-count]');
-const countersObserver = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = +el.dataset.count;
-    const suffix = el.dataset.count === '98' ? '%' : '+';
-    let start = 0;
-    const step = target / 60;
-    const timer = setInterval(() => {
-    start = Math.min(start + step, target);
-    el.textContent = Math.floor(start) + (start >= target ? suffix : '');
-    if (start >= target) clearInterval(timer);
-    }, 25);
-    countersObserver.unobserve(el);
-});
-}, { threshold: 0.5 });
-
-counters.forEach(c => countersObserver.observe(c));
 
 /* ── WhatsApp link ──────────────────────────────────────────────── */
 document.getElementById('waBtn').href = waUrl;
