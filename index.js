@@ -114,8 +114,7 @@ entries.forEach(entry => {
 counters.forEach(c => countersObserver.observe(c));
 
 /* ── WhatsApp link ──────────────────────────────────────────────── */
-// ✏️  Cambia este número por el real de Katia (solo dígitos, con código de país)
-const WA_NUMBER = '52332059914';
+const WA_NUMBER = '523344024741';
 const WA_MESSAGE = encodeURIComponent('¡Hola Katia! Me gustaría agendar una cita');
 const waUrl = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`;
 
